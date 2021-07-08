@@ -7,6 +7,7 @@ import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 import java.util.List;
 import java.util.Map;
+import intentbase.ui.GuiNewMainMenu;
 import javax.vecmath.Matrix4f;
 import net.minecraft.block.Block;
 import net.minecraft.block.properties.IProperty;
@@ -267,7 +268,7 @@ public class Reflector
     private static boolean logVanilla = logEntry("*** Reflector Vanilla ***");
     public static ReflectorClass ChunkProviderClient = new ReflectorClass(ChunkProviderClient.class);
     public static ReflectorField ChunkProviderClient_chunkMapping = new ReflectorField(ChunkProviderClient, LongHashMap.class);
-    public static ReflectorClass GuiMainMenu = new ReflectorClass(GuiMainMenu.class);
+    public static ReflectorClass GuiMainMenu = new ReflectorClass(GuiNewMainMenu.class);
     public static ReflectorField GuiMainMenu_splashText = new ReflectorField(GuiMainMenu, String.class);
     public static ReflectorClass Minecraft = new ReflectorClass(Minecraft.class);
     public static ReflectorField Minecraft_defaultResourcePack = new ReflectorField(Minecraft, DefaultResourcePack.class);

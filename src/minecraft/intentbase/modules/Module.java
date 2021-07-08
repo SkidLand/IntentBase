@@ -1,21 +1,34 @@
 package intentbase.modules;
 
 import intentbase.events.Event;
+import intentbase.settings.KeybindSetting;
+import intentbase.settings.Setting;
 import intentbase.util.Printer;
 import net.minecraft.client.Minecraft;
+import java.util.*;
 
 public class Module {
 
     public Minecraft mc = Minecraft.getMinecraft();
     public String name;
     public boolean toggled;
-    public int keyCode;
+    public KeybindSetting keyBindSetting = new KeybindSetting(0);
     public Category category;
+
+    public boolean expanded;
+    public int index;
+    public List<Setting> settings = new ArrayList<Setting>();
 
     public Module(String name, int keyBind, Category category) {
         this.name = name;
-        this.keyCode = keyBind;
+        this.keyBindSetting.code = keyBind;
         this.category = category;
+        this.addSettings(keyBindSetting);
+    }
+
+    public void addSettings(Setting... settings) {
+        this.settings.addAll(Arrays.asList(settings));
+        this.settings.sort(Comparator.comparingInt(s -> s == keyBindSetting ? 1 : 0));
     }
 
     public void onEvent(Event event) {
@@ -27,7 +40,7 @@ public class Module {
     }
 
     public int getKey() {
-        return keyCode;
+        return keyBindSetting.code;
     }
 
     public void toggle() {
@@ -50,11 +63,17 @@ public class Module {
     }
 
     public enum Category {
-        COMBAT,
-        MOVEMENT,
-        PLAYER,
-        RENDER,
-        WORLD
+        COMBAT("Combat"),
+        MOVEMENT("Movement"),
+        PLAYER("Player"),
+        RENDER("Render");
+
+        public String name;
+        public int moduleIndex;
+
+        Category(String name) {
+            this.name = name;
+        }
     }
 
 }

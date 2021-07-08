@@ -3,6 +3,8 @@ package net.minecraft.client.renderer.entity;
 import com.google.common.collect.Lists;
 import java.nio.FloatBuffer;
 import java.util.List;
+
+import intentbase.util.RenderUtils;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.entity.EntityPlayerSP;
 import net.minecraft.client.gui.FontRenderer;
@@ -145,6 +147,16 @@ public abstract class RendererLivingEntity<T extends EntityLivingBase> extends R
                 }
 
                 float f8 = entity.prevRotationPitch + (entity.rotationPitch - entity.prevRotationPitch) * partialTicks;
+
+                if (RenderUtils.SetCustomPitch && entity == Minecraft.getMinecraft().thePlayer) {
+                    f8 = RenderUtils.getCustomPitch();
+                }
+
+                if (RenderUtils.SetCustomYaw && entity == Minecraft.getMinecraft().thePlayer) {
+                    Minecraft.getMinecraft().thePlayer.renderYawOffset = RenderUtils.getCustomYaw();
+                    Minecraft.getMinecraft().thePlayer.prevRenderYawOffset = RenderUtils.getCustomYaw();
+                }
+
                 this.renderLivingAt(entity, x, y, z);
                 float f7 = this.handleRotationFloat(entity, partialTicks);
                 this.rotateCorpse(entity, f7, f, partialTicks);

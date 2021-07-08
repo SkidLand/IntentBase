@@ -8,6 +8,7 @@ import java.util.Collection;
 import java.util.Random;
 
 import intentbase.IntentBase;
+import intentbase.modules.render.Hud;
 import net.minecraft.block.material.Material;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.GlStateManager;
@@ -348,7 +349,7 @@ public class GuiIngame extends Gui
             this.overlayPlayerList.renderPlayerlist(i, scoreboard, scoreobjective1);
         }
 
-        IntentBase.INSTANCE.hud.draw();
+        IntentBase.INSTANCE.hud.callEvent();
 
         GlStateManager.color(1.0F, 1.0F, 1.0F, 1.0F);
         GlStateManager.disableLighting();

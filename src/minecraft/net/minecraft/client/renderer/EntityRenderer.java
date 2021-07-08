@@ -79,6 +79,8 @@ import optifine.Reflector;
 import optifine.ReflectorForge;
 import optifine.TextureUtils;
 
+import intentbase.ui.GuiNewMainMenu;
+
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.lwjgl.input.Mouse;
@@ -2708,9 +2710,9 @@ public class EntityRenderer implements IResourceManagerReloadListener
             }
         }
 
-        if (this.mc.currentScreen instanceof GuiMainMenu)
+        if (this.mc.currentScreen instanceof GuiNewMainMenu)
         {
-            this.updateMainMenu((GuiMainMenu)this.mc.currentScreen);
+            this.updateMainMenu((GuiNewMainMenu)this.mc.currentScreen);
         }
 
         if (this.updatedWorld != world)
@@ -2749,7 +2751,7 @@ public class EntityRenderer implements IResourceManagerReloadListener
         }
     }
 
-    private void updateMainMenu(GuiMainMenu p_updateMainMenu_1_)
+    private void updateMainMenu(GuiNewMainMenu p_updateMainMenu_1_)
     {
         try
         {
@@ -2774,7 +2776,7 @@ public class EntityRenderer implements IResourceManagerReloadListener
                 return;
             }
 
-            Field[] afield = GuiMainMenu.class.getDeclaredFields();
+            Field[] afield = GuiNewMainMenu.class.getDeclaredFields();
 
             for (int k = 0; k < afield.length; ++k)
             {
