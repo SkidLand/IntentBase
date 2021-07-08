@@ -9,5 +9,8 @@ I didn't make everything the exact same like TabGUI, Killaura and other shit lik
 ### Most likely never gonna update this again
 Unless Nefarious wants to update his tutorial series
 
+# How to use
 `git clone https://github.com/DivineEnergylol/IntentBase`
 Replace src/minecraft with this repo
+
+That really it
