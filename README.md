@@ -1,5 +1,5 @@
 # I wouldn't recommend this clientbase unless you're literally just starting out
-
+btw if ur a skid, stop it now seriously stop skidding
 
 # IntentBase
 
