@@ -19,9 +19,10 @@ import net.minecraft.entity.player.EntityPlayer;
 public class Killaura extends Module {
 
     public Timer timer = new Timer();
+    public ModeSetting targetSetting = new ModeSetting("TargetMode", "Single", "Single", "Switch");
     public NumberSetting cps = new NumberSetting("CPS", 10, 5, 20, 1);
     public NumberSetting range = new NumberSetting("Reach", 4, 1, 6, 0.1);
-    public ModeSetting modeSetting = new ModeSetting("Modes", "Single", "Single", "NoSwing", "Switch");
+    public ModeSetting swingSetting = new ModeSetting("NoSwing", "Enabled", "Disabled", "Disabled");
 
     public Killaura() {
         super("Killaura", Keyboard.KEY_R, Category.COMBAT);
@@ -60,7 +61,7 @@ public class Killaura extends Module {
                     RenderUtils.setCustomPitch(eventMotion.pitch);
 
                     if (timer.hasTimeElapsed((long) (1000 / cps.getValue()), true)) {
-                        if (modeSetting.is("noSwing")) {
+                        if (swingSetting.is("Enabled")) {
                             mc.thePlayer.sendQueue.addToSendQueue(new C0APacketAnimation());
                         } else {
                             mc.thePlayer.swingItem();
