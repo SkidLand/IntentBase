@@ -22,6 +22,7 @@ public class Killaura extends Module {
     public ModeSetting targetSetting = new ModeSetting("TargetMode", "Single", "Single", "Switch");
     public NumberSetting cps = new NumberSetting("CPS", 10, 5, 20, 1);
     public NumberSetting range = new NumberSetting("Reach", 4, 1, 6, 0.1);
+    public ModeSetting blockSetting = new ModeSetting("AutoBlock", "NCP", "Off", "Off");
     public ModeSetting swingSetting = new ModeSetting("NoSwing", "Enabled", "Disabled", "Disabled");
 
     public Killaura() {
