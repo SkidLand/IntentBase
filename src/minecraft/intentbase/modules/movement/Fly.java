@@ -15,12 +15,13 @@ public class Fly extends Module {
     boolean spedUp;
 
     public void onEnable() {
-        mc.timer.timerSpeed = 1.0f;
         spedUp = false;
     }
 
     public void onDisable() {
         mc.timer.timerSpeed = 1.0f;
+        mc.thePlayer.motionX = 0.25
+        mc.thePlayer.motionZ = 0.25
         spedUp = false;
     }
 
